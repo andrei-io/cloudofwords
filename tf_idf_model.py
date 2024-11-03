@@ -16,7 +16,6 @@ text = """
 stop_words = list(stopwords.words("english"))  # Convertește în listă
 
 # 1. Preprocesare
-# Încărcăm modelul spaCy pentru limba engleză (pentru exemplu)
 nlp_processor = spacy.load(
     "en_core_web_sm"
 )  # înlocuiește cu "ro_core_news_sm" pentru română, după instalare
