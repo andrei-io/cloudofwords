@@ -3,10 +3,8 @@ import spacy
 import pandas as pd
 
 from sklearn.feature_extraction.text import TfidfVectorizer
-from wordcloud import WordCloud
 from nltk.corpus import stopwords
 
-# Asigură-te că stopwords pentru nltk sunt descărcate
 nltk.download("stopwords")
 
 # Text de analizat
