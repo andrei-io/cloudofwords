@@ -3,7 +3,7 @@ import os
 
 
 def split_excel_file(
-    filename: str, output_dir: str = "output_chunks", chunk_size: int = 5000
+    filename: str, output_dir: str = "output_chunks", chunk_size: int = 3000
 ):
     """
     Splits a large Excel file into smaller Excel files (chunks).
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         help="Directory to save the output chunks.",
     )
     parser.add_argument(
-        "--chunk_size", type=int, default=5000, help="Number of rows per chunk file."
+        "--chunk_size", type=int, default=3000, help="Number of rows per chunk file."
     )
     args = parser.parse_args()
 

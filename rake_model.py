@@ -16,7 +16,11 @@ def extract_rake_keywords(text, max_length=1) -> list[str]:
     Returns:
         list[str]: O listă de stringuri reprezentând cuvintele cheie extrase, ordonate după scorul de importanță.
     """
-
+    # Verifică dacă textul este gol
+    if not text:
+        raise ValueError(
+            "Textul preprocesat este gol. Verificați conținutul textului de intrare."
+        )
     # Inițializează RAKE cu lungimea maximă specificată pentru fraze
     r = Rake(max_length=max_length)
 

@@ -17,6 +17,11 @@ def extract_tfidf_keywords(text: str) -> list[str]:
     Returns:
         List[str]: A list of words ordered by their relevance (importance).
     """
+    if not text:
+        raise ValueError(
+            "Textul preprocesat este gol. Verificați conținutul textului de intrare."
+        )
+
     # Stopwords = cuvinte de umplutura
     stop_words = list(stopwords.words("english"))  # Convertește în listă
 

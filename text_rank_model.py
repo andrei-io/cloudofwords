@@ -22,6 +22,10 @@ def extract_textrank_keywords(text: str, top_n: int = 10) -> list[str]:
         List[str]: A list of keywords ordered by their importance.
     """
     # Preprocesarea textului
+    if not text:
+        raise ValueError(
+            "Textul preprocesat este gol. Verificați conținutul textului de intrare."
+        )
     # Tokenize sentences and words
     sentences = sent_tokenize(text)
     words = word_tokenize(text.lower())

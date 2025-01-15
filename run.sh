@@ -3,7 +3,7 @@
 # Directory containing chunk files
 CHUNK_DIR="output_chunks"
 # Number of parallel processes to run
-MAX_PROCESSES=8
+MAX_PROCESSES=12
 
 # Trap SIGINT to terminate all child processes when Ctrl+C is pressed
 trap 'echo "Stopping all processes..."; kill 0' SIGINT
@@ -20,7 +20,7 @@ process_file() {
     echo "Starting processing of $chunk_file with PID $$" | tee -a "$log_file"
 
     # Use unbuffer to stream output to log file in real-time
-    unbuffer python3 extract.py "$chunk_file" | tee -a "$log_file"
+    unbuffer python3 extract.py "$chunk_file" --column_name "Abstract" | tee -a "$log_file"
 
     # Log process end
     echo "Completed processing of $chunk_file with PID $$" | tee -a "$log_file"
