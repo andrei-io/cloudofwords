@@ -1,0 +1,4 @@
+- eliminare cuvinte redundante -
+- word2vec mai bun
+- labelling mai bun - neural network de clasificare/unsupervised?
+- calitatea inputurilor - mai variate, nu doar surse oficiale/cu un nivel ridicat de gramatica

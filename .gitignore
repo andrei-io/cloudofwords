@@ -6,3 +6,4 @@ output
 output_chunks
 input
 *.db
+*.bin

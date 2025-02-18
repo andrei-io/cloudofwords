@@ -1,0 +1,39 @@
+docker run --rm -v /home/oni/dev/Working/cloudofwords/keywords.db:/tmp/sqlite.db dimitri/pgloader:latest \
+  pgloader sqlite:///tmp/sqlite.db postgresql://postgres:mysecretpassword@cloudofwords:5432/postgres
+
+docker run --rm --network host -v /home/oni/dev/Working/cloudofwords/keywords.db:/tmp/sqlite.db dimitri/pgloader:latest \
+  pgloader sqlite:///tmp/sqlite.db postgresql://postgres:mysecretpassword@localhost:5432/postgres
+
+
+docker exec -it cloudofwords psql -U postgres -d postgres -c "
+
+SELECT COUNT(*) AS word_count FROM keywords 
+WHERE 
+keyword IN (SELECT keyword FROM keywords WHERE origin='cordis') AND 
+keyword IN (SELECT keyword FROM keywords WHERE origin='crunchbase');"
+
+SELECT COUNT(DISTINCT id) AS common_ids_count
+FROM keywords a
+INNER JOIN keywords b ON a.keyword = b.keyword;
+
+SELECT COUNT(*) AS common_keywords_count
+FROM (
+    SELECT DISTINCT keyword FROM keywords WHERE origin = 'crunchbase'
+    INTERSECT
+    SELECT DISTINCT keyword FROM keywords WHERE origin = 'wipo'
+		INTERSECT
+    SELECT DISTINCT keyword FROM keywords WHERE origin = 'wos'
+) AS common_keywords;
+
+
+A ∩ B = 671; 
+A ∩ C = 532, 
+A ∩ D = 1380;
+B ∩ C = 627; 
+B ∩ D = 1817; 
+C ∩ D = 1878; 
+A ∩ B ∩ C = 349; 
+A ∩ B ∩ D = 660; 
+A ∩ C ∩ D = 530; 
+B ∩ C ∩ D = 620;
+A ∩ B ∩ C ∩ D = 348
