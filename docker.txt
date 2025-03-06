@@ -25,15 +25,3 @@ FROM (
     SELECT DISTINCT keyword FROM keywords WHERE origin = 'wos'
 ) AS common_keywords;
 
-
-A ∩ B = 671; 
-A ∩ C = 532, 
-A ∩ D = 1380;
-B ∩ C = 627; 
-B ∩ D = 1817; 
-C ∩ D = 1878; 
-A ∩ B ∩ C = 349; 
-A ∩ B ∩ D = 660; 
-A ∩ C ∩ D = 530; 
-B ∩ C ∩ D = 620;
-A ∩ B ∩ C ∩ D = 348
