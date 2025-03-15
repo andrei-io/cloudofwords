@@ -1,8 +1,12 @@
-docker run --rm -v /home/oni/dev/Working/cloudofwords/keywords.db:/tmp/sqlite.db dimitri/pgloader:latest \
-  pgloader sqlite:///tmp/sqlite.db postgresql://postgres:mysecretpassword@cloudofwords:5432/postgres
+docker run --name cloudofwords-postgres -e POSTGRES_PASSWORD=mysecretpassword \
+  -p 5432:5432 -d postgres
 
-docker run --rm --network host -v /home/oni/dev/Working/cloudofwords/keywords.db:/tmp/sqlite.db dimitri/pgloader:latest \
+# docker run --rm -v /home/oni/dev/Working/cloudofwords/db/keywords.db:/tmp/sqlite.db dimitri/pgloader:latest \
+#  pgloader sqlite:///tmp/sqlite.db postgresql://postgres:mysecretpassword@cloudofwords:5432/postgres
+
+docker run --rm --network host -v /home/oni/dev/Working/cloudofwords/db/keywords.db:/tmp/sqlite.db dimitri/pgloader:latest \
   pgloader sqlite:///tmp/sqlite.db postgresql://postgres:mysecretpassword@localhost:5432/postgres
+
 
 
 docker exec -it cloudofwords psql -U postgres -d postgres -c "
