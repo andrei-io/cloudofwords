@@ -7,3 +7,5 @@ output_chunks
 input
 *.db
 *.bin
+.idea
+data.csv
