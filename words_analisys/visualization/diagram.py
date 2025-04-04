@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from venn import venn
 
 # Database path
-DB_PATH = "db/core_words.db"
+DB_PATH = "../db/textrank_unique.db"
 
 # Category mapping
 CATEGORY_MAPPING = {"A": "cordis", "B": "crunchbase", "C": "wipo", "D": "wos"}
@@ -99,7 +99,9 @@ print("\nSet sizes (should match computed totals):")
 for key, s in sets_dict.items():
     print(f"{key}: {len(s)}")
 
-# Generate Venn diagram
-venn(sets_dict)
-plt.title("4-Set Venn Diagram")
+# Generate Venn diagram with actual category names
+plt.figure(figsize=(20, 20))  # Increase figure size
+venn({CATEGORY_MAPPING[key]: value for key, value in sets_dict.items()})
+# plt.title("4-Set Venn Diagram")
+plt.tight_layout()  # Reduce whitespace
 plt.show()

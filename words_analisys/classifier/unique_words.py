@@ -1,8 +1,8 @@
 import sqlite3
 
 # Database paths
-INPUT_DB_PATH = "db/keywords.db"
-OUTPUT_DB_PATH = "db/unique.db"
+INPUT_DB_PATH = "../db/textrank_keywords.db"
+OUTPUT_DB_PATH = "../db/textrank_unique.db"
 
 
 # Load all unique (keyword, origin) pairs from keywords.db
@@ -40,7 +40,7 @@ def save_unique_words(db_path, unique_words):
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             keyword TEXT,
             origin TEXT,
-            UNIQUE(keyword, origin)  -- Ensures no duplicate (keyword, origin) pairs
+            UNIQUE(keyword, origin) 
         )
         """
     )
