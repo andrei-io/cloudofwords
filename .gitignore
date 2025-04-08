@@ -9,5 +9,6 @@ input
 *.bin
 .idea
 data.csv
-*pkl
+*.pkl
+data_collection/data.json
 data_input/
