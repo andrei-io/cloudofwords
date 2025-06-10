@@ -41,7 +41,7 @@ python-dateutil==2.9.0.post0
 pytz==2024.2
 rake-nltk==1.0.6
 regex==2024.9.11
-requests==2.32.3
+requests==2.32.4
 rich==13.9.3
 ro_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/ro_core_news_sm-3.8.0/ro_core_news_sm-3.8.0-py3-none-any.whl
 scikit-learn==1.5.2
